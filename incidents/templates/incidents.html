@@ -1,0 +1,62 @@
+{% extends 'master.html' %}
+
+{% block content %}
+
+<main class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 my-4">
+
+      <h1 class="text-center">
+        incidencias
+      </h1>
+
+      <ul class="list-group">
+        {% for incident in incidents %}
+        <a class="list-group-item" href="{% url 'incident_detail' incident.id %}">
+
+          <header class="d-flex justify-content-between">
+
+            <p>{{incident.reportado_por}}</p>
+
+            <p>{{incident.fecha_reporte}}</p>
+
+          </header>
+    
+            <p>{{incident.tipo_incidente}}</p>
+    
+            <!-- <p>{{incident.descripcion}}</p>
+    
+            <p>{{incident.prioridad}}</p>
+    
+            <p>{{incident.estado}}</p>
+    
+            <p>{{incident.acciones_realizadas}}</p> -->
+    
+            
+    
+            {% if incident.fecha_solucion %}
+
+            <p>{{incident.resultado}}</p>
+
+            <div class="alert alert-success d-flex justify-content-between">
+              <p >Revisado Por: {{incident.revisado_por}}</p>
+              <p>{{incident.fecha_solucion|date:'M j Y:i'}}</p>
+            </div>
+
+            {% else %}
+
+            <div class="alert alert-danger">
+              <p >Por revisar</p>
+            </div>
+            
+            {% endif %}
+        </a>
+    
+        {% endfor %}
+      </ul>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'master.html' %}
+
+{% block content %}
+
+<main class="container py-5">
+    <section class="card card-body"> 
+        <h1 class="display-1 pb-3">
+            home
+        </h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Provident qui a dicta dolorem velit quos mollitia quam, ipsum odio alias quis quo, 
+            vitae delectus itaque? Nihil, architecto eaque earum veritatis ipsum eos nulla at, 
+            assumenda iusto excepturi consequatur deserunt modi sequi id perferendis molestiae, 
+            officia laborum! Pariatur illo exercitationem similique quas doloribus quia odit repellendus 
+            labore nam recusandae sit nemo, ab blanditiis quod excepturi libero ad natus, aliquam praesentium 
+            aperiam? Quae nostrum dolorem numquam porro omnis! Ea corrupti optio, consequuntur numquam vel, 
+            quo iusto cum totam dolorum esse at dolor accusantium exercitationem tempore delectus placeat. 
+            Nobis praesentium cupiditate sed. Quia!</p>
+
+        {% if user.is_authenticated %}
+      
+        {% else %}
+        <div class="text-center">
+            <a class="btn btn-secondary" href="/signin/">
+              SignIn
+            </a>
+      
+            <a class="btn btn-dark" href="/signup/">
+              SignUp
+            </a>
+        </div>
+        {% endif %}
+
+    </section>
+</main>
+
+{% endblock %}

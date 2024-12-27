@@ -1,0 +1,44 @@
+{% extends 'master.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+
+            <h1>
+                incident detail
+            </h1>
+            
+            <div>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button class="btn btn-primary">
+                        update
+                    </button>
+                </form>
+                
+                
+                <form action="{% url 'complete_incident' incident.id %}" method="POST">
+                    {% csrf_token %}
+                    <button class="btn btn-primary">
+                        completado
+                    </button>
+                </form>
+
+                
+
+            </div>
+
+            
+            
+
+        </div>
+    </div>
+</main>
+
+
+
+{% endblock %}
