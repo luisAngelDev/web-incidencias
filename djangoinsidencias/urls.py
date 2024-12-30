@@ -27,6 +27,6 @@ urlpatterns = [
     path('incidents_completed/', views.incidents_completed, name='incidents_completed'),
     path('incidents/create/', views.create_incident, name='create_incident'),
     path('incidents/<int:incident_id>/', views.incident_detail, name='incident_detail'),
-    path('tasks/<int:incident_id>/complete', views.complete_incident, name='complete_incident'),
+    path('incidents/<int:incident_id>/complete', views.complete_incident, name='complete_incident'),
     path('signin/', views.signin, name='signin'),
 ]
